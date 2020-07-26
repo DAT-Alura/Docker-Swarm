@@ -34,3 +34,42 @@
 
 - docker init swarm
 - docker swarm start
+
+## Aula 2
+
+1 - Agora queremos adicionar nós ao swarm. Qual das alternativas abaixo é realmente uma responsabilidade dos nós workers dentro do swarm?
+
+- Servir como segurança para caso o nó manager pare de funcionar, ele assuma o lugar dele.
+- Alocar a memória para todos os nós do swarm.
+- __São responsáveis pela execução dos containers dentro do swarm.__
+
+> Alternativa correta! Como o nome diz, eles são os trabalhadores, responsáveis por rodar containers.
+
+2 - Para executarmos comandos de leitura, como por exemplo ```docker node ls```, e/ou alteração no estado do swarm, temos uma condição. Qual das alternativas abaixo contém essa condição?
+
+- Esses comandos podem ser executados tanto em nós managers quanto nós workers.
+- __Podem ser executados apenas em nós managers.__
+
+> Alternativa correta! Tais comandos ficam restritos apenas aos nós managers dentro do swarm.
+
+- Podem apenas ser executados em nós workers.
+
+3 - Vimos na última aula uma diferença bem importante entre os comandos docker service create e docker container run. Qual é essa diferença?
+
+- O ```comando docker container run``` foi defasado. Hoje o recomendado pela empresa Docker é que se utilize apenas o comando docker service create.
+- O ```comando docker container run``` só pode ser usado fora do swarm, enquanto o docker service create pode ser usado tanto dentro quanto fora.
+- __O ```comando docker service create``` no final cria um container em escopo do swarm e o docker container run em escopo local.__
+
+> Alternativa correta! Como vimos, essa é uma grande diferença entre os dois comandos.
+
+- O ```comando docker service create``` no final cria um container em escopo local e o docker container run em escopo do swarm.
+
+4 - Qual artifício do Docker Swarm permite que nós possamos acessar quaisquer serviços a partir do IP de qualquer nó dentro do swarm, apenas informando a porta?
+
+- Router Nodes.
+- __Routing Mesh.__
+
+> Alternativa correta! Graças ao Routing Mesh conseguimos acessar diferentes serviços a partir de qualquer IP pertencente ao swarm.
+
+- Service Tuner.
+- Dispatcher.
