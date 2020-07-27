@@ -147,3 +147,19 @@ Se quisermos restringir o comportamento para um serviço ser rodado apenas em n�
 > Alternativa correta! Informando o role e fazendo a comparação com ==, não teremos problemas.
 - node = worker
 - node.equals == worker
+
+## Aula 5
+
+1 - No último vídeo, aprendemos diversos aspectos sobre serviços replicados. Quais das alternativas abaixo são verdadeiras sobre esse tipo de serviço?
+- __Serviços replicados podem rodar em apenas um nó.__
+> Alternativa correta! Basta definirmos para o serviço ter apenas uma réplica.
+- O número de réplicas de um serviço não pode ser atualizada depois do serviço ser criado.
+- Serviços replicados rodam necessariamente em todos os nós do swarm.
+- __Serviços por padrão são criados no modo replicado.__
+> Alternativa correta! Quando não informamos o modo desejado, criamos serviços replicados por padrão.
+
+2 - No último vídeo, aprendemos diversos aspectos sobre serviços globais. Quais das alternativas abaixo são verdadeiras sobre esse tipo de serviço?
+- __Bons exemplos de serviços globais são serviços de monitoramento e segurança.__
+> Alternativa correta! Serviços que são críticos à aplicação como um todo podem e devem ser executados como globais para que todos os nós possam ser devidamente monitorados e estejam seguros.
+- Serviços globais rodam em todos os nós do swarm, menos em managers.
+- Para um serviço ser global, precisamos necessariamente criá-lo replicado e depois alterar com o docker service update.

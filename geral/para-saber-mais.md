@@ -33,3 +33,15 @@ docker service update --constraint-rm node.hostname==vm4 ci10k3u7q6ti
 ```
 
 Após esse momento, quaisquer novas réplicas criadas para esse serviço poderão ser alocadas sem restrição alguma!
+
+## Service Scale
+
+Vamos supor que temos um serviço com id ci10k3u7q6ti. Como podemos escalar esse serviço para ter 5 réplicas?
+
+Aprendemos uma das possibilidades de alterar o número de réplicas de um serviço utilizando o comando docker service update --replicas 5 ci10k3u7q6ti, mas esse não é o único meio!
+
+Para isso também temos o comando docker service scale. Utilizando o id, podemos atualizar com o comando:
+
+```docker service scale ci10k3u7q6ti=5```
+
+Nesse caso, definimos 5 réplicas para o serviço. Os dois comandos produzem o mesmo resultado, o segundo é apenas uma forma resumida do primeiro comando.
