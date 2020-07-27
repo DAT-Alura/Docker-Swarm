@@ -119,3 +119,31 @@ Obs: Caso não lembre das regras, reveja o último vídeo a partir dos 4:00.
 - __4 para o quórum e 3 falhas no máximo.__
 
 > Alternativa correta! Como nosso quórum é (N / 2) + 1 e o número máximo de falhas é (N - 1) / 2, temos o valor esperado.
+
+## Aula 4
+
+1 - No último vídeo, removemos um nó manager do swarm a partir de outro manager. Quais os procedimentos que devemos executar para realizar essa remoção?
+- __Devemos primeiramente rebaixar o cargo do nó com o comando docker node demote e depois removê-lo com o comando docker node rm.__
+> Alternativa correta! É necessário transformar o nó manager em worker e depois remover.
+- Basta remover utilizando o comando docker node remove.
+- Devemos primeiramente desligar o nó pertencente ao swarm e depois removê-lo com o comando docker node rm.
+- Basta remover utilizando o comando docker node rm.
+
+2 - Quando o nosso objetivo é restringir o comportamento de nós de um swarm, podemos utilizar o comando:
+``` Docker
+docker node update --availability drain
+```
+Qual das alternativas abaixo contém o comportamento esperado do nó sobre o qual foi aplicado esse comando?
+- O nó será desligado mas continuará dentro do swarm.
+- O nó ficará incomunicável com todos os outros nós do swarm.
+- __O nó ficará indisponível para executar tarefas.__
+> Alternativa correta! Com a disponibilidade em drain, não conseguiremos executar mais tarefas/containers nesse nó.
+
+3 - Podemos também aplicar restrições em serviços utilizando o comando:
+```docker service update --constraint-add [outras infos]```
+Se quisermos restringir o comportamento para um serviço ser rodado apenas em nós workers, o que mais precisamos informar para o comando acima?
+- node == worker
+- __node.role == worker__
+> Alternativa correta! Informando o role e fazendo a comparação com ==, não teremos problemas.
+- node = worker
+- node.equals == worker
