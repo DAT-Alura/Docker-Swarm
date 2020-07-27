@@ -45,3 +45,13 @@ Para isso também temos o comando docker service scale. Utilizando o id, podemos
 ```docker service scale ci10k3u7q6ti=5```
 
 Nesse caso, definimos 5 réplicas para o serviço. Os dois comandos produzem o mesmo resultado, o segundo é apenas uma forma resumida do primeiro comando.
+
+## Containers e Overlay
+
+Por mais que o driver overlay seja responsável por comunicar múltiplos hosts em uma mesma rede, também podemos conectar containers em escopo local criados com o comando docker container run em redes criadas com esse driver.
+
+Para isso, basta no momento da criação da rede utilizarmos a flag --attachable:
+
+```docker network create -d overlay --attachable my_overlay```
+
+Com o comando acima, conseguiremos conectar tanto serviços como containers "standalone" em nossa rede my_overlay.

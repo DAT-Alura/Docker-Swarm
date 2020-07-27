@@ -163,3 +163,26 @@ Se quisermos restringir o comportamento para um serviço ser rodado apenas em n�
 > Alternativa correta! Serviços que são críticos à aplicação como um todo podem e devem ser executados como globais para que todos os nós possam ser devidamente monitorados e estejam seguros.
 - Serviços globais rodam em todos os nós do swarm, menos em managers.
 - Para um serviço ser global, precisamos necessariamente criá-lo replicado e depois alterar com o docker service update.
+
+## Aula 6
+
+1 - Conhecemos agora a rede ingress e vimos que, além de ser a rede padrão criada pelo Docker Swarm para os nós que fazem parte do cluster, ela utiliza o driver overlay. Qual das alternativas abaixo contém uma finalidade desse driver?
+- O papel do driver overlay é permitir a comunicação entre diferentes containers em um mesmo host.
+- __O driver overlay comunica seus dados de maneira criptografada para garantir nossa segurança.__
+> Alternativa correta! Executando o comando docker node inspect podemos ver os certificados de segurança.
+- __O driver overlay permite a comunicação entre diferentes hosts de um mesmo cluster.__
+> Alternativa correta! Além de garantir a segurança, o driver overlay também permite a comunicação entre diferentes hosts rodando Docker.
+
+2 - A rede ingress, utilizando o driver overlay, consegue fazer diversas coisas por nós, como garantir por exemplo, a comunicação entre diferentes nós de maneira altamente segura. Porém, ela também possui certas limitações. Qual das alternativas abaixo contém uma dessas limitações?
+- __Serviços conseguem se comunicar apenas via endereço IP.__
+> Alternativa correta! Temos que saber o endereço IP do serviço que queremos nos comunicar utilizando a rede ingress.
+- Devemos habilitar a opção segura manualmente passando a flag --secure no momento de criação do swarm.
+- É exigido o uso de IPV6 para que tudo funcione corretamente.
+
+3 - Na última aula, aprendemos alguns fatos novos sobre User-Defined Overlay networks. Quais das alternativas abaixo contém informações verdadeiras sobre redes criadas manualmente?
+- User-Defined Overlay são criadas de maneira lazy para managers.
+- User-Defined Overlay não permitem comunicação via IP.
+- __User-Defined Overlay são criadas de maneira lazy para workers.__
+> Alternativa correta! Essas redes só serão reconhecidas por workers que rodarem tarefas que utilizem a rede.
+- __Serviços que utilizam redes customizadas conseguem descobrir outros serviços diretamente por nome.__
+> Alternativa correta! Podemos utilizar o conceito de Service Discovery com User-Defined Overlay.
