@@ -73,3 +73,49 @@
 
 - Service Tuner.
 - Dispatcher.
+
+## Aula 3
+
+1 - Caso nosso único manager pare de funcionar, podemos ter problemas. O que acontecerá com o nosso swarm em caso de perda do manager?
+
+- O swarm será destruído automaticamente.
+- __As tarefas em execução em outros nós serão mantidas sem problemas.__
+
+> Alternativa correta! A ausência do manager não afetará as tarefas de outros nós.
+
+- __Não conseguiremos mais executar comandos de leitura e/ou criar novos serviços.__
+
+> Alternativa correta! Com a ausência do manager, não teremos mais nós capazes de executar comandos administrativos.
+
+- Todos as tarefas em execução, em quaisquer nós, irão parar de funcionar.
+
+2 - É muito importante fazermos backup de todo o nosso swarm para evitarmos desastres. Por padrão, em qual diretório fica armazenado o conteúdo do nosso swarm?
+
+- /etc/docker/swarm/state
+- /run/docker/swarm
+- __/var/lib/docker/swarm__
+
+> Alternativa correta! Nesse diretório temos todas as configurações de estado do nosso swarm.
+
+- /etc/docker
+
+3 - Ao utilizarmos o comando docker node ls, como podemos identificar quais nós são managers dentro do nosso swarm?
+
+- Basta olhar a coluna ```Manager Status``` e ver quais nós tem o valor ```Manager```.
+- Basta olhar a coluna ```Manager Status``` e ver quais nós tem o valor ```Reachable```.
+- __Basta olhar a coluna ```Manager Status``` e ver quais nós tem o valor ```Reachable``` ou ```Leader```.__
+
+> Alternativa correta! Nós com esses status são managers dentro do nosso swarm.
+
+- Basta olhar a coluna ```Manager Status``` e ver quais nós tem o valor ```YES```.
+
+4 - Vimos que em caso de falhas do ```Leader``` do swarm, temos uma eleição entre os nós managers para definir o novo líder. Se tivéssemos um swarm com 7 nós managers, qual seria o nosso quórum necessário e número máximo de falhas para realização da eleição?
+
+Obs: Caso não lembre das regras, reveja o último vídeo a partir dos 4:00.
+
+- 2 para o quórum e 5 falhas no máximo.
+- 3 para o quórum e 4 falhas no máximo.
+- 5 para o quórum e 2 falhas no máximo.
+- __4 para o quórum e 3 falhas no máximo.__
+
+> Alternativa correta! Como nosso quórum é (N / 2) + 1 e o número máximo de falhas é (N - 1) / 2, temos o valor esperado.
