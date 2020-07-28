@@ -186,3 +186,29 @@ Se quisermos restringir o comportamento para um serviço ser rodado apenas em n�
 > Alternativa correta! Essas redes só serão reconhecidas por workers que rodarem tarefas que utilizem a rede.
 - __Serviços que utilizam redes customizadas conseguem descobrir outros serviços diretamente por nome.__
 > Alternativa correta! Podemos utilizar o conceito de Service Discovery com User-Defined Overlay.
+
+## Aula 7
+
+1 - Você assumiu um projeto que usa Docker Swarm. No arquivo de configuração tem o seguinte trecho:
+``` Docker
+deploy:
+      mode: replicated
+      replicas: 4
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints: [node.role == manager]
+```
+O que podemos afirmar sobre o trecho acima?
+- O serviço rodará em modo global.
+- __Garantirá que teremos exatamente 4 réplicas desse serviço.__
+> Alternativa correta! Isso será possível graças ao trecho replicas: 4.
+- __Em caso de falhas o serviço será reiniciado.__
+> Alternativa correta! Isso foi definido no trecho de restart_policy.
+- Ele garantirá que o serviço seja executado apenas em nós workers.
+
+2 - Qual a finalidade do comando docker stack deploy?
+- Criar uma pilha de serviços para que possam ser executados de maneira manual conforme desejo do usuário.
+- __Utilizar um arquivo de composição e subir uma pilha de serviços simultaneamente.__
+> Alternativa correta! Podemos inclusive utilizar as instruções do docker-compose.
+- Subir apenas serviços replicados para o swarm.

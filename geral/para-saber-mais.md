@@ -55,3 +55,11 @@ Para isso, basta no momento da criação da rede utilizarmos a flag --attachable
 ```docker network create -d overlay --attachable my_overlay```
 
 Com o comando acima, conseguiremos conectar tanto serviços como containers "standalone" em nossa rede my_overlay.
+
+## Volumes no Swarm
+
+Por padrão, tanto o Docker no modo standalone quanto o Docker Swarm, partilham apenas de um driver local para uso de volumes. Isso quer dizer que o Docker Swarm não possui, até então, solução nativa para distribuir volumes entre os nós.
+
+Então, no exemplo do vídeo anterior, ao definirmos o volume para cada serviço, criamos um volume local dentro de cada nó que for executar a tarefa. Logo, os volumes não são compartilhados entre os diferentes nós do cluster.
+
+Existem soluções que não são nativas do Docker Swarm para utilizar volumes distribuídos entre nós, que podem ser consultadas na [Docker Store](https://hub.docker.com/search?category=volume&q=&type=plugin).
